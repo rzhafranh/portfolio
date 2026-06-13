@@ -68,12 +68,30 @@ const Hero = () => {
         onClick={scrollToAbout}
       >
         <span className="text-[10px] uppercase tracking-widest text-zinc-500 dark:text-white/40">Scroll</span>
+        
+        {/* Desktop: Mouse Icon */}
         <motion.div 
           animate={{ y: [0, 8, 0] }} 
           transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="w-8 h-12 rounded-full border-2 border-zinc-300 dark:border-white/20 flex justify-center pt-2"
+          className="hidden md:flex w-8 h-12 rounded-full border-2 border-zinc-300 dark:border-white/20 justify-center pt-2"
         >
           <div className="w-1 h-2 bg-neon-cyan rounded-full shadow-[0_0_10px_rgba(0,240,255,0.8)]" />
+        </motion.div>
+
+        {/* Mobile: Simple Up/Down Arrow Tips */}
+        <motion.div 
+          animate={{ y: [0, 8, 0] }} 
+          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+          className="md:hidden flex flex-col items-center gap-2"
+        >
+          {/* Up arrow tip - dim */}
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" className="drop-shadow-[0_0_6px_rgba(0,240,255,0.4)]">
+            <path d="M2 10 L10 2 L18 10" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neon-cyan opacity-40"/>
+          </svg>
+          {/* Down arrow tip - bright */}
+          <svg width="20" height="12" viewBox="0 0 20 12" fill="none" className="drop-shadow-[0_0_10px_rgba(0,240,255,0.8)]">
+            <path d="M2 2 L10 10 L18 2" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-neon-cyan"/>
+          </svg>
         </motion.div>
       </motion.div>
     </section>

@@ -1,18 +1,16 @@
 import { motion } from 'framer-motion';
 
+// Using local project images instead of external URLs to avoid timeout issues
 const galleryImages = [
-  { id: 1, src: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=800', alt: 'Retro PC' },
-  { id: 2, src: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800', alt: 'Abstract Neon' },
-  { id: 3, src: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=800', alt: 'Matrix Code' },
-  { id: 4, src: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=800', alt: 'Code Setup' },
-  { id: 5, src: 'https://images.unsplash.com/photo-1614729939124-032f0b56c9ce?q=80&w=800', alt: 'Neon Lights' },
-  { id: 6, src: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800', alt: 'Server Room' },
-  { id: 7, src: 'https://images.unsplash.com/photo-1504639725590-34d0984388bd?q=80&w=800', alt: 'Night Coding' },
-  { id: 8, src: 'https://images.unsplash.com/photo-1547082299-de196ea013d6?q=80&w=800', alt: 'UI Design' },
-  { id: 9, src: 'https://images.unsplash.com/photo-1624953901718-de84f5de3c53?q=80&w=800', alt: 'Dark Workspace' },
-  { id: 10, src: 'https://images.unsplash.com/photo-1581472723648-909f4851d4ae?q=80&w=800', alt: 'Creative Studio' },
-  { id: 11, src: 'https://images.unsplash.com/photo-1543966888-7c1dc482a810?q=80&w=800', alt: 'Portfolio Design' },
-  { id: 12, src: 'https://images.unsplash.com/photo-1517134191118-9d595e4c8c2b?q=80&w=800', alt: 'Creative Desk' },
+  { id: 1, src: '/images/Projects/capstone.png', alt: 'Data Visualization' },
+  { id: 2, src: '/images/Projects/capstone1.png', alt: 'PowerBI Dashboard' },
+  { id: 3, src: '/images/Projects/capstone2.png', alt: 'Analytics Report' },
+  { id: 4, src: '/images/Projects/capstone3.png', alt: 'Data Analysis' },
+  { id: 5, src: '/images/Projects/dpp.png', alt: 'Image Processing' },
+  { id: 6, src: '/images/Projects/dpp1.png', alt: 'Digital Processing' },
+  { id: 7, src: '/images/Projects/rpl.png', alt: 'Clinic Reservation' },
+  { id: 8, src: '/images/Projects/rpl1.png', alt: 'System Design' },
+  { id: 9, src: '/images/Projects/rpl2.png', alt: 'UI Design' },
 ];
 
 const col1 = galleryImages.filter((_, i) => i % 3 === 0);
@@ -36,7 +34,7 @@ const ScrollColumn = ({ images, duration, delay = 0 }) => {
               alt={img.alt}
               className="w-full h-44 object-cover filter grayscale-[40%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
               loading="lazy"
-              onError={(e) => { e.target.src = 'https://via.placeholder.com/400x220/18181b/333?text=Photo'; }}
+              onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="14">Photo</text></svg>'; }}
             />
           </div>
         ))}

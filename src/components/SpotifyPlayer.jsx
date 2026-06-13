@@ -130,7 +130,7 @@ const SpotifyPlayer = () => {
                   src={currentTrack.cover} 
                   alt="Cover" 
                   className="w-full h-full object-cover" 
-                  onError={(e) => { e.target.src = 'https://placehold.co/400x400/18181b/333?text=Cover'; }}
+                  onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="14">Cover</text></svg>'; }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-zinc-950 via-transparent to-black/30" />
                 
@@ -215,7 +215,7 @@ const SpotifyPlayer = () => {
               src={currentTrack.cover} 
               alt="Cover" 
               className={`w-full h-full object-cover ${isPlaying ? 'animate-[spin_6s_linear_infinite]' : ''}`} 
-              onError={(e) => { e.target.src = 'https://placehold.co/400x400/18181b/333?text=Cover'; }}
+              onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="14">Cover</text></svg>'; }}
             />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition-colors">
               <Music className="w-6 h-6 text-white" />

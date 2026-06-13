@@ -46,7 +46,7 @@ const WorksPage = () => {
                       src={project.images?.[0]}
                       alt={project.title}
                       className="w-full h-full object-cover filter brightness-75 group-hover:brightness-100 group-hover:scale-110 transition-all duration-700"
-                      onError={(e) => { e.target.src = 'https://via.placeholder.com/600x400/18181b/ff007f?text=Project+Preview'; }}
+                      onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23ff007f" font-family="sans-serif" font-size="16" font-weight="bold">Project Preview</text></svg>'; }}
                     />
                   </div>
                   <div className="p-5 relative flex-grow flex flex-col">

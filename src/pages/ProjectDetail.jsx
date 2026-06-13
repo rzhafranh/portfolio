@@ -121,7 +121,7 @@ const ProjectDetail = () => {
                       className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 aspect-video"
                     >
                       <img src={img} alt={`${project.title} ${i + 2}`} className="w-full h-full object-cover"
-                        onError={(e) => { e.target.src = 'https://via.placeholder.com/800x500/18181b/333?text=Preview'; }} />
+                        onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="16">Preview</text></svg>'; }} />
                     </motion.div>
                   ))}
                 </div>

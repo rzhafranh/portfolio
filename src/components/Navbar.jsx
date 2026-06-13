@@ -40,16 +40,30 @@ const Navbar = () => {
 
   return (
     <>
+      {/* Mobile Menu Button - standalone circle */}
+      <motion.button
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        type="button"
+        onClick={() => setIsSidebarOpen(true)}
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-12 h-12 backdrop-blur-md bg-white/70 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-full flex items-center justify-center text-zinc-700 dark:text-white shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(0,0,0,0.5)] transition hover:bg-zinc-200 dark:hover:bg-white/10 md:hidden"
+        aria-label="Open navigation menu"
+      >
+        <Menu className="h-5 w-5" />
+      </motion.button>
+
+      {/* Desktop Nav Bar */}
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto max-w-[90vw]"
+        className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-auto max-w-[90vw] hidden md:block"
       >
         <div className="backdrop-blur-md bg-white/70 dark:bg-zinc-900/40 border border-zinc-200 dark:border-white/10 rounded-full px-6 py-3 flex items-center justify-center gap-6 md:gap-8 shadow-[0_0_15px_rgba(0,0,0,0.1)] dark:shadow-[0_0_15px_rgba(0,0,0,0.5)]">
           
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="flex items-center gap-6">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
               return (
@@ -75,20 +89,10 @@ const Navbar = () => {
               );
             })}
           </div>
-
-          {/* Mobile menu trigger */}
-          <button
-            type="button"
-            onClick={() => setIsSidebarOpen(true)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-zinc-100 dark:bg-white/5 text-zinc-700 dark:text-white shadow-sm transition hover:bg-zinc-200 dark:hover:bg-white/10 md:hidden border border-zinc-200 dark:border-white/10"
-            aria-label="Open navigation menu"
-          >
-            <Menu className="h-5 w-5" />
-          </button>
         </div>
       </motion.nav>
 
-      {/* Mobile Sidebar */}
+      {/* Mobile Sidebar - from LEFT */}
       <AnimatePresence>
         {isSidebarOpen && (
           <>
@@ -100,11 +104,11 @@ const Navbar = () => {
               className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
             />
             <motion.aside
-              initial={{ x: 320, opacity: 0 }}
+              initial={{ x: -320, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: 320, opacity: 0 }}
+              exit={{ x: -320, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 260, damping: 24 }}
-              className="fixed right-0 top-0 z-50 h-full w-72 max-w-[85vw] border-l border-zinc-200 dark:border-white/10 bg-white/95 dark:bg-zinc-950/95 shadow-2xl backdrop-blur-xl md:hidden flex flex-col"
+              className="fixed left-0 top-0 z-50 h-full w-72 max-w-[85vw] border-r border-zinc-200 dark:border-white/10 bg-white/95 dark:bg-zinc-950/95 shadow-2xl backdrop-blur-xl md:hidden flex flex-col"
             >
               <div className="flex items-center justify-between border-b border-zinc-200 dark:border-white/10 px-6 py-5">
                 <span className="text-zinc-900 dark:text-white font-bold text-xl">Menu</span>

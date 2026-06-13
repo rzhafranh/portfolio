@@ -396,7 +396,7 @@ export const projectsData = [
     subtitle: "Intern Project",
     year: "2025",
     images: [
-      "/placeholder-project-6-1.jpg"
+      "/images/Projects/rpl.png"
     ],
     description: "[DESKRIPSI_PROJECT_6]",
     technologies: ["HTML", "CSS", "JavaScript"],
@@ -440,8 +440,7 @@ export const projectsData = [
     subtitle: "Data Mining Final Project",
     year: "2025",
     images: [
-      "/placeholder-project-2-1.jpg",
-      "/placeholder-project-2-2.jpg"
+      "/images/Projects/dpp.png"
     ],
     description: "[DESKRIPSI_PROJECT_2]",
     technologies: ["Python"]
@@ -453,7 +452,7 @@ export const projectsData = [
     subtitle: "Data Mining Final Project",
     year: "2025",
     images: [
-      "/placeholder-project-5-1.jpg"
+      "/images/Projects/dpp1.png"
     ],
     description: "[DESKRIPSI_PROJECT_5]",
     technologies: ["Python"]
@@ -465,7 +464,7 @@ export const projectsData = [
     subtitle: "Digital Image Processing",
     year: "2025",
     images: [
-      "/placeholder-project-3-1.jpg"
+      "/images/Projects/dpp.png"
     ],
     description: "[DESKRIPSI_PROJECT_3]",
     technologies: ["Python"]
