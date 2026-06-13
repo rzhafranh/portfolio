@@ -1,0 +1,55 @@
+/* Additional custom styles if needed */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom animations */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glass morphism effect enhancement */
+.glass-effect-strong {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Text selection */
+::selection {
+  background-color: rgba(0, 217, 255, 0.3);
+  color: white;
+}
+
+::-moz-selection {
+  background-color: rgba(0, 217, 255, 0.3);
+  color: white;
+}
+
+/* Loading animation for images */
+img {
+  transition: opacity 0.3s ease-in-out;
+}
+
+img[src=""],
+img:not([src]) {
+  opacity: 0;
+}
+
+/* Prevent layout shift */
+img {
+  max-width: 100%;
+  height: auto;
+}
