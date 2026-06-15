@@ -60,7 +60,7 @@ const WorksPage = () => {
               animate={{ opacity: 1, y: 0 }}
               className="text-5xl md:text-7xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none"
             >
-              All <span className="text-neon-pink">Works.</span>
+              Selected <span className="text-neon-pink">Works.</span>
             </motion.h1>
 
             {/* Filters */}
