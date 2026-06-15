@@ -2,29 +2,30 @@ import { motion } from 'framer-motion';
 
 // Using local project images instead of external URLs to avoid timeout issues
 const galleryImages = [
-  { id: 1, src: '/images/Gallery/AgriUX.webp'},
-  { id: 2, src: '/images/Gallery/Himalkom24.webp'},
-  { id: 3, src: '/images/Gallery/Himalkom25.webp'},
-  { id: 4, src: '/images/Gallery/IAO23.webp'},
-  { id: 5, src: '/images/Gallery/Inight23.webp'},
-  { id: 6, src: '/images/Gallery/PI60.webp'},
-  { id: 7, src: '/images/Gallery/SD23.webp'},
-  { id: 8, src: '/images/Gallery/SD24.webp'},
-  { id: 9, src: '/images/Gallery/UXToday.webp'},
-  { id: 10, src: '/images/Gallery/gallery1.jpeg'},
-  { id: 11, src: '/images/Gallery/gallery2.jpeg'},
-  { id: 12, src: '/images/Gallery/gallery3.jpeg'},
-  { id: 13, src: '/images/Gallery/gallery4.jpeg'},
-  { id: 14, src: '/images/Gallery/gallery5.jpeg'},
-  { id: 15, src: '/images/Gallery/gallery6.jpeg'},
-  { id: 16, src: '/images/Gallery/gallery7.jpeg'},
-  { id: 17, src: '/images/Gallery/gallery8.jpeg'},
-  { id: 18, src: '/images/Gallery/gallery9.jpeg'},
-  { id: 19, src: '/images/Gallery/gallery10.jpeg'},
-  { id: 20, src: '/images/Gallery/gallery11.jpeg'},
-  { id: 21, src: '/images/Gallery/gallery12.jpeg'},
-  { id: 22, src: '/images/Gallery/gallery13.jpeg'},
-  { id: 23, src: '/images/Gallery/gallery14.jpeg'},
+  { id: 1, src: 'https://ik.imagekit.io/rzhafranh/Gallery/SD23.webp?updatedAt=1781498643523'},
+  { id: 2, src: 'https://ik.imagekit.io/rzhafranh/Gallery/Himalkom24.webp?updatedAt=1781498643486'},
+  { id: 3, src: 'https://ik.imagekit.io/rzhafranh/Gallery/PI60.webp?updatedAt=1781498643126'},
+  { id: 4, src: 'https://ik.imagekit.io/rzhafranh/Gallery/SD24.webp?updatedAt=1781498641297'},
+  { id: 5, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery11.jpeg?updatedAt=1781498641219'},
+  { id: 6, src: 'https://ik.imagekit.io/rzhafranh/Gallery/Himalkom25.jpeg'},
+  { id: 7, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery1.jpeg?updatedAt=1781498641236'},
+  { id: 8, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery14.jpeg?updatedAt=1781498637858'},
+  { id: 9, src: 'https://ik.imagekit.io/rzhafranh/Gallery/UXToday.webp?updatedAt=1781498641250'},
+  { id: 10, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery1.jpeg?updatedAt=1781498641236'},
+  { id: 11, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery5.jpeg?updatedAt=1781498640684'},
+  { id: 12, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery2.jpeg?updatedAt=1781498640606'},
+  { id: 13, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery6.jpeg?updatedAt=1781498639803'},
+  { id: 14, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery4.jpeg?updatedAt=1781498639590'},
+  { id: 15, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery9.jpeg?updatedAt=1781498639553'},
+  { id: 16, src: 'https://ik.imagekit.io/rzhafranh/Gallery/Inight23.webp?updatedAt=1781498639234'},
+  { id: 17, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery8.jpeg?updatedAt=1781498638885'},
+  { id: 18, src: 'https://ik.imagekit.io/rzhafranh/Gallery/IAO23.webp?updatedAt=1781498638374'},
+  { id: 19, src: 'https://ik.imagekit.io/rzhafranh/Gallery/AgriUX.webp?updatedAt=1781498637220'},
+  { id: 20, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery3.jpeg?updatedAt=1781498638041'},
+  { id: 21, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery13.jpeg?updatedAt=1781498637997'},
+  { id: 22, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery7.jpeg?updatedAt=1781498637699'},
+  { id: 23, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery12.jpeg?updatedAt=1781498637246'},
+  { id: 24, src: 'https://ik.imagekit.io/rzhafranh/Gallery/gallery10.jpeg?updatedAt=1781498637146'},
 ];
 
 const col1 = galleryImages.filter((_, i) => i % 3 === 0);
@@ -35,7 +36,7 @@ const col3 = galleryImages.filter((_, i) => i % 3 === 2);
 const ScrollColumn = ({ images, duration, delay = 0 }) => {
   const doubled = [...images, ...images];
   return (
-    <div className="relative overflow-hidden" style={{ height: '1040px' }}>
+    <div className="relative overflow-hidden" style={{ height: '1560px' }}>
       <motion.div
         className="flex flex-col gap-4"
         animate={{ y: ['0%', '-50%'] }}
