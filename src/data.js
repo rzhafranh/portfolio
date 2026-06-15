@@ -496,7 +496,7 @@ export const projectsData = [
     links: [
       {
         id: "github",
-        label: "Github",
+        label: "Code - Github",
         icon: "github",
         url: "https://github.com/rzhafranh/rzh-projects/tree/main/Intern%20Project%20at%20PT%20Astemo",
       },
@@ -520,7 +520,7 @@ export const projectsData = [
     links: [
       {
         id: "github",
-        label: "Github",
+        label: "File - Github",
         icon: "github",
         url: "https://github.com/rzhafranh/rzh-projects/tree/main/Capstone%20Project",
       },
@@ -545,7 +545,7 @@ export const projectsData = [
     links: [
       {
         id: "colab",
-        label: "Google Colab",
+        label: "Code - Google Colab",
         icon: "colab",
         url: "https://colab.research.google.com/drive/1w6UmUZ88hwaxoUuuCXHof1i8jm6HhkdJ?usp=sharing",
       },
@@ -572,19 +572,19 @@ export const projectsData = [
     links: [
       {
         id: "colabreg",
-        label: "Google Colab",
+        label: "Reggresion Code - Google Colab",
         icon: "colab",
         url: "https://colab.research.google.com/drive/15aaOY7scP0nGImUCF0Qu8B0rCdu0Wb6E",
       },
       {
         id: "colabclass",
-        label: "Google Colab",
+        label: "Classification Code - Google Colab",
         icon: "colab",
         url: "https://colab.research.google.com/drive/135Iu8-wTpivF2cBBMVKnypbE5Lgl-0vx",
       },
       {
         id: "docsreportdaming",
-        label: "Google Docs - Report",
+        label: "Report - Google Docs",
         icon: "docs",
         url: "https://docs.google.com/document/d/1N_IT-Qda57GYJJ6TH8_SuL8zjnXhbEHZ/edit?usp=sharing&ouid=103949759996857829730&rtpof=true&sd=true",
       },
@@ -613,7 +613,7 @@ export const projectsData = [
     links: [
       {
         id: "colabpcd",
-        label: "Google Colab",
+        label: "Code - Google Colab",
         icon: "colab",
         url: "https://colab.research.google.com/drive/1hrTM49U-NtNbvKwO7T7UoCw-dPDR79Z7?usp=sharing",
       },
@@ -635,7 +635,7 @@ export const projectsData = [
     links: [
       {
         id: "rplgithub",
-        label: "Github",
+        label: "Code - Github",
         icon: "github",
         url: "https://github.com/YudoTLE/poliklinik",
       },
