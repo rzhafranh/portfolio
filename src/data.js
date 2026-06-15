@@ -83,9 +83,7 @@ export const professionalExperiences = [
     title: "System Developer Intern",
     company: "PT Astemo Bekasi Manufacturing",
     period: "Oct - Dec 2025",
-    image: "/images/Experiences/Professionals/PT Astemo.webp",
     shortDescription: "Spearheaded the full-lifecycle development of a web-based industrial platform, bridging the gap between manufacturing operational pain points and technical specifications. Achieved a 90/100 performance rating by strictly validating all modules against industrial quality standards.",
-    fullDescription: "During my tenure as a System Developer at PT Astemo Bekasi Manufacturing, I took ownership of the <span class=\"highlight-word\">full-lifecycle development </span>of an industrial web platform, centering my efforts on ensuring architectural integrity, long-term stability, and system reliability. I began the project by conducting rigorous requirement analysis to intimately understand manufacturing operational pain points and successfully translate them into robust technical specifications. This intentional, <span class=\"highlight-word\">user-centered approach</span> ensured that the finalized system directly addressed and mitigated core business risks while optimizing human-computer interaction flows on the factory floor. <br /><br />By executing the project through disciplined, documented progress tracking, I systematically validated that every single module adhered to strict industrial quality benchmarks. This commitment to rigorous engineering standards and software excellence resulted in a smooth, high-impact deployment, ultimately earning the system an outstanding <span class=\"highlight-word\">final performance rating of 90/100</span>.",
     skills: [
       {
         id: "skill-1",
@@ -507,7 +505,7 @@ export const projectsData = [
 
   {
     id: "capstoneproject",
-    type: "data", // uiux, coding, webdev, data, ai
+    type: "data",
     title: "Student Grade Data Visualization with Microsoft PowerBI",
     subtitle: "Capstone Project",
     year: "2025",
@@ -671,7 +669,7 @@ export const projectsData = [
       },
       {
         id: "figmajam",
-        label: "FigJam",
+        label: "Figma - Board",
         icon: "figma",
         url: "https://www.figma.com/board/aDHjC6qQeSThfMgJK3ujne/FigJam?node-id=0-1&p=f&t=l3PtKs4wbrH1blXr-0",
       },
