@@ -2,15 +2,29 @@ import { motion } from 'framer-motion';
 
 // Using local project images instead of external URLs to avoid timeout issues
 const galleryImages = [
-  { id: 1, src: '/images/Projects/capstone.png', alt: 'Data Visualization' },
-  { id: 2, src: '/images/Projects/capstone1.png', alt: 'PowerBI Dashboard' },
-  { id: 3, src: '/images/Projects/capstone2.png', alt: 'Analytics Report' },
-  { id: 4, src: '/images/Projects/capstone3.png', alt: 'Data Analysis' },
-  { id: 5, src: '/images/Projects/dpp.png', alt: 'Image Processing' },
-  { id: 6, src: '/images/Projects/dpp1.png', alt: 'Digital Processing' },
-  { id: 7, src: '/images/Projects/rpl.png', alt: 'Clinic Reservation' },
-  { id: 8, src: '/images/Projects/rpl1.png', alt: 'System Design' },
-  { id: 9, src: '/images/Projects/rpl2.png', alt: 'UI Design' },
+  { id: 1, src: '/images/Gallery/AgriUX.webp'},
+  { id: 2, src: '/images/Gallery/Himalkom24.webp'},
+  { id: 3, src: '/images/Gallery/Himalkom25.webp'},
+  { id: 4, src: '/images/Gallery/IAO23.webp'},
+  { id: 5, src: '/images/Gallery/Inight23.webp'},
+  { id: 6, src: '/images/Gallery/PI60.webp'},
+  { id: 7, src: '/images/Gallery/SD23.webp'},
+  { id: 8, src: '/images/Gallery/SD24.webp'},
+  { id: 9, src: '/images/Gallery/UXToday.webp'},
+  { id: 10, src: '/images/Gallery/gallery1.jpeg'},
+  { id: 11, src: '/images/Gallery/gallery2.jpeg'},
+  { id: 12, src: '/images/Gallery/gallery3.jpeg'},
+  { id: 13, src: '/images/Gallery/gallery4.jpeg'},
+  { id: 14, src: '/images/Gallery/gallery5.jpeg'},
+  { id: 15, src: '/images/Gallery/gallery6.jpeg'},
+  { id: 16, src: '/images/Gallery/gallery7.jpeg'},
+  { id: 17, src: '/images/Gallery/gallery8.jpeg'},
+  { id: 18, src: '/images/Gallery/gallery9.jpeg'},
+  { id: 19, src: '/images/Gallery/gallery10.jpeg'},
+  { id: 20, src: '/images/Gallery/gallery11.jpeg'},
+  { id: 21, src: '/images/Gallery/gallery12.jpeg'},
+  { id: 22, src: '/images/Gallery/gallery13.jpeg'},
+  { id: 23, src: '/images/Gallery/gallery14.jpeg'},
 ];
 
 const col1 = galleryImages.filter((_, i) => i % 3 === 0);

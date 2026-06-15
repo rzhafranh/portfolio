@@ -81,7 +81,7 @@ const About = () => {
           {/* Right Column: Text content */}
           <motion.div variants={itemVariants} className="lg:col-span-7 flex flex-col justify-center">
             <h2 className="text-2xl md:text-5xl font-bold mb-6 text-zinc-900 dark:text-white">
-              Who is <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 via-purple-800 to-pink-800 dark:from-neon-cyan dark:via-neon-pink dark:to-neon-purple">{aboutData.name}?</span>
+              Hi, I'm <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-900 via-purple-800 to-pink-800 dark:from-neon-cyan dark:via-neon-pink dark:to-neon-purple">{aboutData.name}!</span>
             </h2>
 
             <div

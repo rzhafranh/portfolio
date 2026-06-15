@@ -1,19 +1,74 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { FaGithub } from 'react-icons/fa';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ExternalLink, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { FaGithub, FaFigma } from 'react-icons/fa';
+import { SiGooglecolab, SiGoogledocs, SiGoogle } from 'react-icons/si';
 import { projectsData, getBadgeColor } from '../data';
+
+// Icon map — keys are lowercase for case-insensitive matching
+const linkIconMap = {
+  github: FaGithub,
+  figma: FaFigma,
+  colab: SiGooglecolab,
+  googlecolab: SiGooglecolab,
+  docs: SiGoogledocs,
+  googledocs: SiGoogledocs,
+  google: SiGoogle,
+  link: ExternalLink,
+};
+
+const getLinkIcon = (iconName) => {
+  if (!iconName) return ExternalLink;
+  const Icon = linkIconMap[iconName.toLowerCase()];
+  return Icon || ExternalLink;
+};
 
 
 const ProjectDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const project = projectsData.find(p => p.id === id);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  const allImages = project?.images || [];
+
+  // Distribute images into left/right columns (left-to-right order)
+  const { leftCol, rightCol } = useMemo(() => {
+    const left = [], right = [];
+    allImages.forEach((img, i) => {
+      if (i % 2 === 0) left.push({ src: img, index: i });
+      else right.push({ src: img, index: i });
+    });
+    return { leftCol: left, rightCol: right };
+  }, [allImages.length]);
 
   const handleBack = () => {
-    navigate('/', { state: { scrollTo: 'works' } });
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/', { state: { scrollTo: 'works' } });
+    }
   };
+
+  // Keyboard navigation for lightbox
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const handleKey = (e) => {
+      if (e.key === 'Escape') setLightboxOpen(false);
+      if (e.key === 'ArrowLeft') setLightboxIndex(prev => Math.max(0, prev - 1));
+      if (e.key === 'ArrowRight') setLightboxIndex(prev => Math.min(allImages.length - 1, prev + 1));
+    };
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [lightboxOpen]);
+
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    document.body.style.overflow = lightboxOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [lightboxOpen]);
 
   if (!project) {
     return (
@@ -28,18 +83,19 @@ const ProjectDetail = () => {
     );
   }
 
-  const badge = getBadgeColor(project.type || project.types?.[0]);
-  const mainImage = project.images?.[0];
-  const galleryImages = project.images?.slice(1) || [];
+  const openLightbox = (index) => {
+    setLightboxIndex(index);
+    setLightboxOpen(true);
+  };
 
   return (
-    <div className="min-h-screen pt-28 pb-24">
-      {/* Hero Banner */}
+    <div className="min-h-screen pb-24">
+      {/* Hero Banner - sticks to top */}
       <div className="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-50 dark:to-zinc-950 z-10" />
         <div className="absolute inset-0 bg-zinc-100/10 dark:bg-zinc-900/60 z-10" />
-        {mainImage ? (
-          <img src={mainImage} alt={project.title} className="w-full h-full object-cover object-top"
+        {allImages[0] ? (
+          <img src={allImages[0]} alt={project.title} className="w-full h-full object-cover object-top"
             onError={(e) => { e.target.style.background = '#18181b'; e.target.style.display = 'none'; }} />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center">
@@ -62,8 +118,13 @@ const ProjectDetail = () => {
             </button>
 
             {/* Badge */}
-            <div className="mb-4">
-              <span className={`${badge.bg} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider`}>{badge.text}</span>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {(project.types || (project.type ? [project.type] : [])).map((type, i) => {
+                const b = getBadgeColor(type);
+                return (
+                  <span key={i} className={`${b.bg} text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider`}>{b.text}</span>
+                );
+              })}
             </div>
 
             <h1 className="text-2xl md:text-3xl font-black mb-3 leading-snug text-zinc-900 dark:text-white">{project.title}</h1>
@@ -84,14 +145,17 @@ const ProjectDetail = () => {
             {/* Links */}
             {project.links && project.links.length > 0 && (
               <div className="flex flex-col gap-3">
-                {project.links.map(link => (
-                  <a key={link.id} href={link.url} target="_blank" rel="noreferrer"
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 hover:border-cyan-500 dark:hover:border-neon-cyan hover:bg-cyan-50 dark:hover:bg-neon-cyan/5 transition-all text-sm font-bold group text-zinc-800 dark:text-white"
-                  >
-                    {link.id === 'github' ? <FaGithub className="w-4 h-4 text-zinc-500 dark:text-white/60 group-hover:text-cyan-600 dark:group-hover:text-neon-cyan" /> : <ExternalLink className="w-4 h-4 text-zinc-500 dark:text-white/60 group-hover:text-cyan-600 dark:group-hover:text-neon-cyan" />}
-                    <span className="group-hover:text-cyan-600 dark:group-hover:text-neon-cyan transition-colors">{link.label}</span>
-                  </a>
-                ))}
+                {project.links.map(link => {
+                  const LinkIcon = getLinkIcon(link.icon);
+                  return (
+                    <a key={link.id} href={link.url} target="_blank" rel="noreferrer"
+                      className="flex items-center gap-3 px-4 py-3 rounded-xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 hover:border-cyan-500 dark:hover:border-neon-cyan hover:bg-cyan-50 dark:hover:bg-neon-cyan/5 transition-all text-sm font-bold group text-zinc-800 dark:text-white"
+                    >
+                      <LinkIcon className="w-4 h-4 text-zinc-500 dark:text-white/60 group-hover:text-cyan-600 dark:group-hover:text-neon-cyan" />
+                      <span className="group-hover:text-cyan-600 dark:group-hover:text-neon-cyan transition-colors">{link.label}</span>
+                    </a>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -107,23 +171,49 @@ const ProjectDetail = () => {
               />
             </div>
 
-            {/* Image Gallery */}
-            {galleryImages.length > 0 && (
+            {/* Image Gallery — True Masonry (native ratio + left-to-right) */}
+            {allImages.length > 1 && (
               <div>
                 <h2 className="text-sm uppercase tracking-widest text-zinc-400 dark:text-white/40 mb-6 border-b border-zinc-200 dark:border-white/10 pb-3">Gallery</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                  {galleryImages.map((img, i) => (
-                    <motion.div
-                      key={i}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: i * 0.1 + 0.3 }}
-                      className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 aspect-video"
-                    >
-                      <img src={img} alt={`${project.title} ${i + 2}`} className="w-full h-full object-cover"
-                        onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="16">Preview</text></svg>'; }} />
-                    </motion.div>
-                  ))}
+                <div className="flex gap-5">
+                  <div className="flex-1 flex flex-col gap-5">
+                    {leftCol.map((item) => (
+                      <motion.div
+                        key={item.index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: item.index * 0.1 + 0.3 }}
+                        className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] transition-all group"
+                        onClick={() => openLightbox(item.index)}
+                      >
+                        <img
+                          src={item.src}
+                          alt={`${project.title} ${item.index + 1}`}
+                          className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="16">Preview</text></svg>'; }}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                  <div className="flex-1 flex flex-col gap-5">
+                    {rightCol.map((item) => (
+                      <motion.div
+                        key={item.index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: item.index * 0.1 + 0.3 }}
+                        className="rounded-2xl overflow-hidden border border-zinc-200 dark:border-white/10 bg-zinc-100 dark:bg-zinc-900 cursor-pointer hover:border-neon-cyan/50 hover:shadow-[0_0_20px_rgba(0,240,255,0.15)] transition-all group"
+                        onClick={() => openLightbox(item.index)}
+                      >
+                        <img
+                          src={item.src}
+                          alt={`${project.title} ${item.index + 1}`}
+                          className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
+                          onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="16">Preview</text></svg>'; }}
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
                 </div>
               </div>
             )}
@@ -131,6 +221,67 @@ const ProjectDetail = () => {
 
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center"
+            onClick={() => setLightboxOpen(false)}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setLightboxOpen(false)}
+              className="absolute top-4 right-4 z-[110] w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
+            {/* Image Counter */}
+            <div className="absolute top-4 left-4 z-[110] text-white/70 text-sm font-medium bg-black/50 px-3 py-1.5 rounded-full">
+              {lightboxIndex + 1} / {allImages.length}
+            </div>
+
+            {/* Left Arrow */}
+            {lightboxIndex > 0 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => prev - 1); }}
+                className="absolute left-4 z-[110] w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </button>
+            )}
+
+            {/* Right Arrow */}
+            {lightboxIndex < allImages.length - 1 && (
+              <button
+                onClick={(e) => { e.stopPropagation(); setLightboxIndex(prev => prev + 1); }}
+                className="absolute right-4 z-[110] w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </button>
+            )}
+
+            {/* Image */}
+            <motion.img
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.2 }}
+              src={allImages[lightboxIndex]}
+              alt={`${project.title} ${lightboxIndex + 1}`}
+              className="max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+              onError={(e) => { e.target.onerror = null; e.target.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="100%" height="100%" fill="%2318181b"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23666" font-family="sans-serif" font-size="16">Preview</text></svg>'; }}
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
