@@ -6,7 +6,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-10 pb-20">
       {/* Mesh Grid — Hero only */}
       <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#80808018_1px,transparent_1px),linear-gradient(to_bottom,#80808018_1px,transparent_1px)] bg-[size:24px_24px] opacity-40 dark:opacity-100 pointer-events-none" />
 

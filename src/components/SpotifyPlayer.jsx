@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Pause, FastForward, Rewind, Shuffle, X, Volume2, VolumeX, Music, ChevronDown } from 'lucide-react';
+import { Play, Pause, FastForward, Rewind, X, Volume2, VolumeX, Music, ChevronDown } from 'lucide-react';
 
 const tracks = [
   {
@@ -97,7 +97,47 @@ const SpotifyPlayer = () => {
         audioRef.current.pause();
       }
     }
+    // Sync state back to compact player in Navbar
+    window.dispatchEvent(new CustomEvent('spotify:state-change', { detail: { isPlaying, currentTrackIdx } }));
   }, [isPlaying, currentTrackIdx]);
+
+  // Listen for external commands from the compact mobile player in Navbar
+  useEffect(() => {
+    const handleExternalPlay = () => setIsPlaying(true);
+    const handleExternalPause = () => setIsPlaying(false);
+    const handleExternalNext = () => {
+      setCurrentTrackIdx((prev) => (prev + 1) % tracks.length);
+      setIsPlaying(true);
+    };
+    const handleExternalPrev = () => {
+      setCurrentTrackIdx((prev) => (prev - 1 + tracks.length) % tracks.length);
+      setIsPlaying(true);
+    };
+    const handleExternalSeek = (e) => {
+      if (audioRef.current) {
+        audioRef.current.currentTime = e.detail.progress * (audioRef.current.duration || 1);
+      }
+    };
+    const handleExternalMute = (e) => {
+      setIsMuted(e.detail.isMuted);
+    };
+
+    window.addEventListener('player:play', handleExternalPlay);
+    window.addEventListener('player:pause', handleExternalPause);
+    window.addEventListener('player:next', handleExternalNext);
+    window.addEventListener('player:prev', handleExternalPrev);
+    window.addEventListener('player:seek', handleExternalSeek);
+    window.addEventListener('player:mute', handleExternalMute);
+
+    return () => {
+      window.removeEventListener('player:play', handleExternalPlay);
+      window.removeEventListener('player:pause', handleExternalPause);
+      window.removeEventListener('player:next', handleExternalNext);
+      window.removeEventListener('player:prev', handleExternalPrev);
+      window.removeEventListener('player:seek', handleExternalSeek);
+      window.removeEventListener('player:mute', handleExternalMute);
+    };
+  }, []);
 
   return (
     <>
@@ -114,7 +154,7 @@ const SpotifyPlayer = () => {
         className="hidden"
       />
 
-      <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+      <div className="fixed bottom-6 right-6 z-50 hidden md:flex flex-col items-end">
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -156,9 +196,8 @@ const SpotifyPlayer = () => {
 
                 {/* Main Playback Controls */}
                 <div className="flex items-center justify-between mb-5">
-                  <button onClick={() => setIsLooping(!isLooping)} className={`p-1 transition-colors ${isLooping ? 'text-cyan-600 dark:text-[#b7f09d]' : 'text-zinc-400 hover:text-zinc-800 dark:text-white/40 dark:hover:text-white'}`}>
-                    <Shuffle className="w-5 h-5" />
-                  </button>
+                  {/* Spacer to balance the volume button on the right */}
+                  <div className="w-5" />
                   
                   <div className="flex items-center gap-5">
                     <button onClick={handlePrev} className="text-zinc-600 hover:text-zinc-900 dark:text-white/80 dark:hover:text-white hover:scale-110 transition-all">

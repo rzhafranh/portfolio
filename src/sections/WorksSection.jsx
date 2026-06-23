@@ -43,8 +43,11 @@ const WorksSection = () => {
           {/* Right Column — Scrollable Content */}
           <div className="lg:col-span-9 py-4 lg:pl-10">
             {/* Mobile title */}
-            <div className="flex justify-between items-end mb-10 lg:hidden">
-              <h2 className="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none">Works<span className="text-neon-pink drop-shadow-[0_0_15px_rgba(255,0,127,0.8)] dark:bg-none">.</span></h2>
+            <div className="mb-10 lg:hidden">
+              <div className="flex justify-between items-end mb-2">
+                <h2 className="text-4xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none">Works<span className="text-neon-pink drop-shadow-[0_0_15px_rgba(255,0,127,0.8)] dark:bg-none">.</span></h2>
+              </div>
+              <p className="text-zinc-600 dark:text-white/50 text-sm leading-relaxed mb-3">A selection of my projects spanning web development, UI/UX design, and data science.</p>
               <Link to="/works" className="flex items-center gap-2 text-sm font-bold text-neon-pink">
                 More Works <ArrowRight className="w-4 h-4" />
               </Link>

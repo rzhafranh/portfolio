@@ -34,7 +34,8 @@ const Experiences = () => {
           {/* Right Column — Experience List */}
           <div className="lg:col-span-9 py-4 lg:pl-10">
             {/* Mobile title */}
-            <h2 className="text-4xl font-black tracking-tighter mb-8 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none whitespace-nowrap">Journey<span className="text-neon-green drop-shadow-[0_0_15px_rgba(57,255,20,0.8)] dark:bg-none">.</span></h2>
+            <h2 className="text-4xl font-black tracking-tighter mb-2 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none whitespace-nowrap">Journey<span className="text-neon-green drop-shadow-[0_0_15px_rgba(57,255,20,0.8)] dark:bg-none">.</span></h2>
+            <p className="text-zinc-600 dark:text-white/50 text-sm leading-relaxed mb-8 lg:hidden">A timeline of professional, internships, student organizations, and event leadership experiences.</p>
 
             <div className="flex flex-col divide-y divide-zinc-200 dark:divide-white/5">
               {allExp.map((exp, index) => (

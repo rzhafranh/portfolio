@@ -97,7 +97,8 @@ const Skills = () => {
           {/* Right Column — Scrollable Skill Grid */}
           <div className="lg:col-span-9 py-4 lg:pl-10">
             {/* Mobile title */}
-            <h2 className="text-4xl font-black tracking-tighter mb-8 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none">Tech<span className="text-electric-blue drop-shadow-[0_0_15px_rgba(0,217,255,0.8)] dark:bg-none">.</span></h2>
+            <h2 className="text-4xl font-black tracking-tighter mb-2 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-neon-purple to-neon-pink dark:text-white dark:bg-none">Tech<span className="text-electric-blue drop-shadow-[0_0_15px_rgba(0,217,255,0.8)] dark:bg-none">.</span></h2>
+            <p className="text-zinc-600 dark:text-white/50 text-sm leading-relaxed mb-8 lg:hidden">A curated collection of frameworks, tools, and languages I leverage to craft digital experiences.</p>
 
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-6">
               {allSkills.map((skill, index) => (
@@ -162,7 +163,8 @@ const Skills = () => {
           {/* Right Column — Scrollable Skill Grid */}
           <div className="lg:col-span-9 py-4 lg:pl-10">
             {/* Mobile title */}
-            <h2 className="text-4xl font-black tracking-tighter mb-8 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500 dark:text-white dark:bg-none">Skills<span className="text-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.8)] dark:bg-none">.</span></h2>
+            <h2 className="text-4xl font-black tracking-tighter mb-2 lg:hidden text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-500 dark:text-white dark:bg-none">Skills<span className="text-orange-500 drop-shadow-[0_0_15px_rgba(249,115,22,0.8)] dark:bg-none">.</span></h2>
+            <p className="text-zinc-600 dark:text-white/50 text-sm leading-relaxed mb-8 lg:hidden">Core competencies and interpersonal skills that drive my professional growth.</p>
 
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-6">
               {aboutData.softSkills?.map((skill, index) => (
