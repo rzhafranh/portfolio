@@ -496,9 +496,15 @@ export const projectsData = [
     links: [
       {
         id: "github",
-        label: "Code - Github",
+        label: "Github - Code",
         icon: "github",
         url: "https://github.com/rzhafranh/rzh-projects/tree/main/Intern%20Project%20at%20PT%20Astemo",
+      },
+      {
+        id: "docs",
+        label: "Google Docs - Report",
+        icon: "docs",
+        url: "https://docs.google.com/document/d/1ypIPg-uTU1VggjaUj47BNrXlE3vNHNMd/edit?usp=sharing&ouid=103949759996857829730&rtpof=true&sd=true",
       },
     ],
   },
@@ -520,7 +526,7 @@ export const projectsData = [
     links: [
       {
         id: "github",
-        label: "File - Github",
+        label: "Github - Dashboard File",
         icon: "github",
         url: "https://github.com/rzhafranh/rzh-projects/tree/main/Capstone%20Project",
       },
@@ -545,10 +551,16 @@ export const projectsData = [
     links: [
       {
         id: "colab",
-        label: "Code - Google Colab",
+        label: "Google Colab - Code",
         icon: "colab",
         url: "https://colab.research.google.com/drive/1w6UmUZ88hwaxoUuuCXHof1i8jm6HhkdJ?usp=sharing",
       },
+            {
+        id: "docs",
+        label: "Google Docs - Report",
+        icon: "docs",
+        url: "https://docs.google.com/document/d/1MMgfPX41mvYTDDQDb0BemKiFNFZ7tP9x/edithttps://docs.google.com/document/d/1MMgfPX41mvYTDDQDb0BemKiFNFZ7tP9x/edit?usp=sharing&ouid=104896118157665138256&rtpof=true&sd=true",
+      }
     ],
   },
     {
@@ -572,19 +584,19 @@ export const projectsData = [
     links: [
       {
         id: "colabreg",
-        label: "Reggresion Code - Google Colab",
+        label: "Google Colab - Reggresion Code",
         icon: "colab",
         url: "https://colab.research.google.com/drive/15aaOY7scP0nGImUCF0Qu8B0rCdu0Wb6E",
       },
       {
         id: "colabclass",
-        label: "Classification Code - Google Colab",
+        label: "Google Colab - Classification Code",
         icon: "colab",
         url: "https://colab.research.google.com/drive/135Iu8-wTpivF2cBBMVKnypbE5Lgl-0vx",
       },
       {
         id: "docsreportdaming",
-        label: "Report - Google Docs",
+        label: "Google Docs - Report",
         icon: "docs",
         url: "https://docs.google.com/document/d/1N_IT-Qda57GYJJ6TH8_SuL8zjnXhbEHZ/edit?usp=sharing&ouid=103949759996857829730&rtpof=true&sd=true",
       },
@@ -613,7 +625,7 @@ export const projectsData = [
     links: [
       {
         id: "colabpcd",
-        label: "Code - Google Colab",
+        label: "Google Colab - Code",
         icon: "colab",
         url: "https://colab.research.google.com/drive/1hrTM49U-NtNbvKwO7T7UoCw-dPDR79Z7?usp=sharing",
       },
@@ -635,7 +647,7 @@ export const projectsData = [
     links: [
       {
         id: "rplgithub",
-        label: "Code - Github",
+        label: "Github - Code",
         icon: "github",
         url: "https://github.com/YudoTLE/poliklinik",
       },
