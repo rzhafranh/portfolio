@@ -90,24 +90,25 @@ const ProjectDetail = () => {
 
   return (
     <div className="min-h-screen pb-24">
-      {/* Hero Banner - sticks to top */}
-      <div className="relative w-full h-[45vh] md:h-[55vh] overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-zinc-50 dark:to-zinc-950 z-10" />
-        <div className="absolute inset-0 bg-zinc-100/10 dark:bg-zinc-900/60 z-10" />
+      {/* Hero Banner - natural height driven by image */}
+      <div className="relative w-full overflow-hidden">
+        {/* Gradual fade — blends header image into content area smoothly */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent/60 to-zinc-50 dark:to-zinc-950 z-10 pointer-events-none" />
+        <div className="absolute inset-0 bg-zinc-100/5 dark:bg-zinc-900/40 z-10 pointer-events-none" />
         {allImages[0] ? (
-          <img src={allImages[0]} alt={project.title} className="w-full h-full object-cover object-top"
+          <img src={allImages[0]} alt={project.title} className="w-full h-auto max-h-[70vh] object-cover object-top block"
             onError={(e) => { e.target.style.background = '#18181b'; e.target.style.display = 'none'; }} />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center">
+          <div className="w-full h-[45vh] bg-gradient-to-br from-zinc-900 to-zinc-950 flex items-center justify-center">
             <span className="text-8xl font-black text-white/10">{project.title.charAt(0)}</span>
           </div>
         )}
         {/* Overlay glows */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-32 bg-neon-pink/20 blur-[80px] z-0" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-96 h-40 bg-neon-pink/20 blur-[100px] z-0" />
       </div>
 
-      {/* Content */}
-      <div className="container mx-auto px-6 max-w-[90rem] -mt-16 relative z-20">
+      {/* Content — flows directly below header with no forced overlap */}
+      <div className="container mx-auto px-6 max-w-[90rem] relative z-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
           {/* Left Info Column */}

@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Play, Pause, Rewind, FastForward, Volume2, VolumeX } from 'lucide-react';
 import { useState, useEffect, useRef } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useScrollSpy } from '../hooks/useScrollSpy';
 
 const navItems = [
@@ -39,6 +39,8 @@ const navMap = {
 const Navbar = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const isSubPage = location.pathname !== '/';
   const activeSection = useScrollSpy(watchedSectionIds, 150, navMap);
 
   // ─── Theme toggle state ────────────────────────────────────────────────────
@@ -150,15 +152,18 @@ const Navbar = () => {
     };
   }, []);
 
-  // Hide navbar on sub-pages (works, project detail)
-  const isSubPage = location.pathname !== '/';
-  if (isSubPage) return null;
-
+  // Navigate to section — handles cross-page navigation from subpages
   const scrollToSection = (id) => {
     setIsSidebarOpen(false);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (isSubPage) {
+      // From subpage: navigate to landing page with scroll target
+      navigate('/', { state: { scrollTo: id } });
+    } else {
+      // On landing page: scroll directly
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -189,7 +194,7 @@ const Navbar = () => {
           {/* Desktop Nav */}
           <div className="flex items-center gap-6">
             {navItems.map((item) => {
-              const isActive = activeSection === item.id;
+              const isActive = !isSubPage && activeSection === item.id;
               return (
                 <button
                   key={item.id}
@@ -250,7 +255,7 @@ const Navbar = () => {
               {/* Nav items - scrollable middle area */}
               <nav className="flex flex-col gap-2 p-4 mt-4 flex-1 overflow-y-auto">
                 {navItems.map((item) => {
-                  const isActive = activeSection === item.id;
+                  const isActive = !isSubPage && activeSection === item.id;
                   return (
                     <button
                       key={item.id}
