@@ -82,9 +82,10 @@ export const professionalExperiences = [
     type: "internship", // professional, organization, event
     title: "System Analyst Intern",
     company: "PT Mid Solusi Nusantara - Mekari",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Mekari.png?updatedAt=1793690313960",
     period: "Jul 2026 - Current",
     shortDescription:
-      "Supporting senior System Analysts on a banking client engagement, turning client requirements into Functional Specification Documents (FSDs), prototypes, and implementation plans for an enterprise expense management module.",
+      "Being a System Analysts and also supporting other SAs in a banking client engagement, turning client requirements into Functional Specification Documents (FSDs) and implementation plans for an enterprise expense management module.",
     skills: [
       {
         id: "skill-1",
@@ -117,6 +118,7 @@ export const professionalExperiences = [
     type: "internship", // professional, organization, event
     title: "System Developer Intern",
     company: "PT Astemo Bekasi Manufacturing",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Astemo.png?updatedAt=1793690313377",
     period: "Oct - Dec 2025",
     shortDescription: "Spearheaded the full-lifecycle development of a web-based industrial platform, bridging the gap between manufacturing operational pain points and technical specifications. Achieved a 90/100 performance rating by strictly validating all modules against industrial quality standards.",
     skills: [
@@ -155,6 +157,7 @@ export const organizationExperiences = [
     type: "organization",
     title: "Head of Creative and Branding Division",
     company: "Himpunan Mahasiswa Ilmu Komputer IPB",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Himalkom.jpg",
     period: "Jan - Dec 2025",
     shortDescription: "Led creative operations and visual communication strategy for Himalkom to ensure consistent user-facing experiences across all programs. Mentored an 11-member division to streamline design workflows and maintain strict quality control.", 
     skills: [
@@ -193,6 +196,7 @@ export const organizationExperiences = [
     type: "organization",
     title: "Staff of Creative and Branding Division",
     company: "Himpunan Mahasiswa Ilmu Komputer IPB",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Himalkom.jpg",
     period: "Jan - Dec 2024",
     shortDescription: "Contributed to organizational branding and event promotion by designing digital assets and delivering comprehensive documentation for 20+ events. Named Creative Staff of the Year for reliability and exceptional output quality.",
     skills: [
@@ -219,6 +223,7 @@ export const organizationExperiences = [
     type: "organization",
     title: "Head of Communication and Publication Division",
     company: "UKM Panahan IPB",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/UKM%20Panahan%20IPB.png",
     period: "Jan - Dec 2024",
     shortDescription: "Led a creative team in executing a 12-month digital communication and content strategy across social media platforms to significantly drive community engagement and event participation.",
     skills: [
@@ -249,6 +254,7 @@ export const organizationExperiences = [
     type: "organization",
     title: "Chairman",
     company: "AgriUX",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/AgriUX.png",
     period: "Jan - Nov 2024",
     shortDescription: "Led AgriUX, a specialized UI/UX student community focused on developing user-centered design skills through workshops and industry practitioner sessions.",
     skills: [
@@ -283,6 +289,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Chairman",
     company: "Saung Desain 2024",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/SD24.png",
     period: "May - Nov 2024",
     shortDescription: "Led the execution of a single-day design workshop centered on design system fundamentals, UI implementation, and modern industry standards.",
     skills: [
@@ -309,6 +316,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Head of UXToday Division",
     company: "ITTODAY 2024",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Ittoday%202024.png",
     period: "Apr - Oct 2024",
     shortDescription: "Managed a national-scale, 2-month UI/UX competition with 100+ participants, focusing heavily on optimizing the participant experience and submission workflow clarity.",
     skills: [
@@ -339,6 +347,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Staff of Design, Documentation, and Branding Division",
     company: "CPSC 2024",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/CPSC%202024.png",
     period: "Jun - Oct 2024",
     shortDescription: "Provided comprehensive visual coverage and high-quality event photography for a competition with over 50 participants to support impactful branding and marketing content production.",
     skills: [
@@ -369,6 +378,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Staff of Creative Division",
     company: "Pekan Ilkomerz 60",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Placeholder.png",
     period: "May - Sep 2024",
     shortDescription: "Designed promotional assets and handled event photography for a large student event with 100+ participants under tight, parallel deadlines.",
     skills: [
@@ -391,6 +401,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Staff of Media Branding Division",
     company: "Ilkomerz Night 2023",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/Placeholder.png",
     period: "Oct - Dec 2023",
     shortDescription: "Supported visual branding, designed 40+ official award certificates, and delivered digital assets under tight timelines for an event with 400+ attendees.",
     skills: [
@@ -413,6 +424,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Staff of Event Division",
     company: "Saung Desain 2023",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/SD23.png",
     period: "Jul - Nov 2023",
     shortDescription: "Managed event logistics and stakeholder communication for a design community workshop, coordinating with experienced alumni and securing essential operations.",
     skills: [
@@ -435,6 +447,7 @@ export const organizationExperiences = [
     type: "event",
     title: "Vice Head of the Creative Division",
     company: "IPB Archery Open 2023",
+    logo: "https://ik.imagekit.io/rzhafranh/Experience/IAO23.png",
     period: "Aug - Oct 2023",
     shortDescription: "Co-led creative operations and coordinated a 12-member team managing parallel workflows in design, social media, and live photography for a national tournament with 200+ participants.",
     skills: [
@@ -772,7 +785,9 @@ export const socialsData = {
 // Helper function untuk mendapatkan warna badge berdasarkan tipe
 export const getBadgeColor = (type) => {
   const colors = {
-    professional: { bg: "bg-red-500", text: "PROFESSIONAL" },
+    professional: { bg: "bg-purple-600", text: "FULL TIME" },
+    fulltime: { bg: "bg-purple-600", text: "FULL TIME" },
+    "full-time": { bg: "bg-purple-600", text: "FULL TIME" },
     internship: { bg: "bg-teal-600", text: "INTERNSHIP" },
     organization: { bg: "bg-red-400", text: "ORGANIZATION" },
     event: { bg: "bg-blue-400", text: "EVENT" },
