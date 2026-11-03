@@ -42,7 +42,7 @@ const About = () => {
                 <img
                   src={aboutData.photo}
                   alt={aboutData.name}
-                  className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-contain hover:grayscale-100 transition-all duration-700"
                 />
               </div>
 
@@ -90,13 +90,13 @@ const About = () => {
             />
 
             <div className="grid grid-cols-2 gap-6">
-              <div className="p-6 rounded-2xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 backdrop-blur-sm hover:border-cyan-500/50 dark:hover:border-neon-cyan/50 transition-colors">
-                <h4 className="text-4xl font-black text-cyan-600 dark:text-neon-cyan mb-2">2+</h4>
-                <p className="text-zinc-500 dark:text-white/50 text-sm uppercase tracking-wider">Years Experience</p>
+              <div className="p-6 rounded-2xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 backdrop-blur-sm hover:border-cyan-500/50 dark:hover:border-neon-cyan/50 hover:border-orange-500 shadow-sm hover:border-[0_0_20px_rgba(249,115,22,0.35)] transition-colors">
+                <h4 className="text-4xl font-black text-cyan-600 dark:text-neon-cyan mb-2">10+</h4>
+                <p className="text-zinc-500 dark:text-white/50 text-xs uppercase tracking-wider">Organizations & Events Experience</p>
               </div>
               <div className="p-6 rounded-2xl bg-zinc-100 dark:bg-white/5 border border-zinc-200 dark:border-white/10 backdrop-blur-sm hover:border-pink-500/50 dark:hover:border-neon-pink/50 transition-colors">
                 <h4 className="text-4xl font-black text-pink-600 dark:text-neon-pink mb-2">15+</h4>
-                <p className="text-zinc-500 dark:text-white/50 text-sm uppercase tracking-wider">Projects Completed</p>
+                <p className="text-zinc-500 dark:text-white/50 text-xs uppercase tracking-wider">Projects Completed</p>
               </div>
             </div>
           </motion.div>
