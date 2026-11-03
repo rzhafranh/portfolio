@@ -59,7 +59,7 @@ const About = () => {
                 transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -left-6 bottom-1/4 bg-pink-50/90 dark:bg-zinc-900/80 backdrop-blur-md border border-pink-200/50 dark:border-white/10 px-4 py-2 rounded-xl shadow-lg z-20"
               >
-                <span className="text-pink-700 dark:text-neon-pink font-bold tracking-wider text-sm">DEV</span>
+                <span className="text-pink-700 dark:text-neon-pink font-bold tracking-wider text-sm">SYSTEM</span>
               </motion.div>
               <motion.div
                 animate={{ y: [-15, 15, -15] }}

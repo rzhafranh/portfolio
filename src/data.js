@@ -77,8 +77,43 @@ export const heroData = {
 
 // Data untuk Experiences - Professional
 export const professionalExperiences = [
-  {
+    {
     id: "prof-1",
+    type: "internship", // professional, organization, event
+    title: "System Analyst Intern",
+    company: "PT Mid Solusi Nusantara - Mekari",
+    period: "Jul 2026 - Current",
+    shortDescription:
+      "Supporting senior System Analysts on a banking client engagement, turning client requirements into Functional Specification Documents (FSDs), prototypes, and implementation plans for an enterprise expense management module.",
+    skills: [
+      {
+        id: "skill-1",
+        name: "Functional Specification Documentation"
+      },
+      {
+        id: "skill-2",
+        name: "Requirements Gathering & Workshop Facilitation Support"
+      },
+      {
+        id: "skill-3",
+        name: "Meeting Minutes & Documentation"
+      },
+      {
+        id: "skill-4",
+        name: "Prototyping & Wireframing"
+      },
+      {
+        id: "skill-5",
+        name: "System Flow & Process Modeling"
+      },
+      {
+        id: "skill-6",
+        name: "Implementation Planning & UX Documentation"
+      }
+    ]
+  },
+  {
+    id: "prof-2",
     type: "internship", // professional, organization, event
     title: "System Developer Intern",
     company: "PT Astemo Bekasi Manufacturing",
@@ -110,42 +145,7 @@ export const professionalExperiences = [
         name: "Business Risk Mitigation",
       }
     ]
-  },
-{
-  id: "prof-2",
-  type: "internship", // professional, organization, event
-  title: "System Analyst Intern",
-  company: "PT Mid Solusi Nusantara - Mekari",
-  period: "Jul 2026 - Current",
-  shortDescription:
-    "Supporting senior System Analysts on a banking client engagement, turning client requirements into Functional Specification Documents (FSDs), prototypes, and implementation plans for an enterprise expense management module.",
-  skills: [
-    {
-      id: "skill-1",
-      name: "Functional Specification Documentation"
-    },
-    {
-      id: "skill-2",
-      name: "Requirements Gathering & Workshop Facilitation Support"
-},
-    {
-      id: "skill-3",
-      name: "Meeting Minutes & Documentation"
-    },
-    {
-      id: "skill-4",
-      name: "Prototyping & Wireframing"
-    },
-    {
-      id: "skill-5",
-      name: "System Flow & Process Modeling"
-    },
-    {
-      id: "skill-6",
-      name: "Implementation Planning & UX Documentation"
-    }
-  ]
-}
+  }
 ];
 
 // Data untuk Experiences - Organizations & Events
