@@ -2,7 +2,7 @@
 export const aboutData = {
   name: "Raihan Zhafran",
   photo: "/images/profile.png",
-  description: "<span class=\"highlight-word\">UI/UX Designer</span> & <span class=\"highlight-word\">System Developer</span> with a Computer Science background from IPB University, specialized in bridging technical architecture with user-centered functionality. Leveraging a full-stack mentality, from database logic to front-end deployment, to translate complex business requirements into scalable digital solutions. Proven track record of leading cross-functional teams and technical initiatives, delivering robust systems and intuitive design systems in high-stakes environments.",
+  description: "Computer Science graduate from IPB University with hands-on experience as a <span class=\"highlight-word\">System Developer</span>, <span class=\"highlight-word\">System Analyst</span>, and <span class=\"highlight-word\">UI/UX Designer</span>, bridging technical architecture and user-centered design. With a full-stack mindset, from database logic to front-end delivery, I turn complex business requirements into clear specifications and scalable, intuitive digital solutions.",
 
   // Hard Skills - divided into 4 categories
   // Ganti path icon dengan path gambar logo skill Anda (taruh di folder public/icons/)
