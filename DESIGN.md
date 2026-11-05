@@ -1,9 +1,5 @@
 # Portfolio Design Direction
 
-## Audience
-
-Recruiters, product teams, and collaborators evaluating Raihan Zhafran's systems, interface, and data work.
-
 ## Identity
 
 An editorial project archive built around real work. The interface should feel precise, curious, and personal rather than like a generic developer landing page.
